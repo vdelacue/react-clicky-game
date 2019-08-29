@@ -81,6 +81,7 @@ class App extends Component {
         <ScoreBoard highScore={this.state.highScore} currentScore={this.state.currentScore} />
         <Wrapper>
           <Title>Zeppelin Clicky Game</Title>
+          
           {this.state.gameRunning ? (
             this.state.cards.map(card => (
               <PlayingCard
