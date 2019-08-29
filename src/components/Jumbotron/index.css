@@ -1,0 +1,12 @@
+h1 {
+    color: white;
+    background-repeat: no-repeat;
+}
+
+.jumbotron {
+    background-image: url("https://www.freewebheaders.com/wp-content/gallery/music/illustrative-semi-acoustic-guitar-on-red-background-header.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    text-align: left;
+    border-bottom: solid;
+}
