@@ -1,12 +1,16 @@
 h1 {
     color: white;
     background-repeat: no-repeat;
+    font-family: 'lobster', cursive;
 }
 
 .jumbotron {
-    background-image: url("https://www.freewebheaders.com/wp-content/gallery/music/illustrative-semi-acoustic-guitar-on-red-background-header.jpg");
+    /* background-image: url("https://www.freewebheaders.com/wp-content/gallery/music/illustrative-semi-acoustic-guitar-on-red-background-header.jpg"); */
     background-repeat: no-repeat;
     background-size: 100%;
     text-align: left;
     border-bottom: solid;
+    font-family: 'lobster', cursive;
+    background-color: #E2CE95;
+    height: 170px;
 }

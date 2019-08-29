@@ -3,14 +3,16 @@
   font-family: sans-serif;
 }
 
-/* html, body, #root {
+html, body, #root {
   padding: 0;
   margin: 0;
   height: 100%;
-} */
+}
 
 body {
-  background-image: url("https://user-images.githubusercontent.com/23455324/63884032-73227100-c9a3-11e9-91a9-689d3498c9c6.jpg");
+  /* background-image: url("https://user-images.githubusercontent.com/23455324/63884032-73227100-c9a3-11e9-91a9-689d3498c9c6.jpg"); */
+  background-image: url("https://cdn.wallpapersafari.com/56/90/P9Hsn2.jpg");
+  
   background-size: cover;
-  /* background-color: black; */
+  background-color: black;
 }

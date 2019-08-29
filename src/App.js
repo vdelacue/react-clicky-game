@@ -18,13 +18,11 @@ class App extends Component {
     cards: cards,
     clickedCards: [],
     highScore: 0,
+    currentScore: 0,
     gameRunning: true
   };
 
-  componentDidMount() {
-    console.log(this.state);
-  }
-
+  // function to shuffle cards
   shuffle = array => {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -33,16 +31,18 @@ class App extends Component {
     return array;
   };
 
+  //function to handle card click (logic of game)
   cardClicked = id => {
     if (this.state.clickedCards.includes(id)) {
       this.setState({gameRunning: false})
       //then reset the state
-      this.setState({ clickedCards: [] });
+      this.setState({ clickedCards: [], currentScore: 0 });
     } else {
       this.setState(
         {
           clickedCards: [...this.state.clickedCards, id],
-          cards: this.shuffle(this.state.cards)
+          cards: this.shuffle(this.state.cards),
+          currentScore: this.state.currentScore + 1
         },
         () => this.checkHighScore()
       );
@@ -78,7 +78,7 @@ class App extends Component {
       // />
 
       <div>
-        <ScoreBoard highScore={this.state.highScore} />
+        <ScoreBoard highScore={this.state.highScore} currentScore={this.state.currentScore} />
         <Wrapper>
           <Title>Zeppelin Clicky Game</Title>
           {this.state.gameRunning ? (
