@@ -1,16 +1,10 @@
 import React, { Component } from "react";
 import PlayingCard from "./components/PlayingCard/index";
 import Wrapper from "./components/Wrapper";
-import Title from "./components/Title";
 import ScoreBoard from "./components/ScoreBoard/ScoreBoard";
 import cards from "./cards.json";
-import Background from "./images/zep-background.jpg";
+import GameOver from "./components/GameOver/index";
 const iconPath = process.env.PUBLIC_URL + "/images/";
-
-console.log(Background);
-// const sectionStyle = {
-//   backgroundImage: "url(" + { Background } + ")"
-// };
 
 class App extends Component {
   // Setting this.state.cards to the cards json array
@@ -34,9 +28,7 @@ class App extends Component {
   //function to handle card click (logic of game)
   cardClicked = id => {
     if (this.state.clickedCards.includes(id)) {
-      this.setState({gameRunning: false})
-      //then reset the state
-      this.setState({ clickedCards: [], currentScore: 0 });
+      this.setState({ gameRunning: false });
     } else {
       this.setState(
         {
@@ -47,16 +39,10 @@ class App extends Component {
         () => this.checkHighScore()
       );
     }
-    // Filter this.state.cards for cards with an id not equal to the id being removed
-    // const cards = this.state.cards.filter(card => card.id !== id);
-    // const clickedCards = this.state.cards.filter(card => card.id === id);
-    // const clickedCards = this.state.cards.filter(card => card.id === id);
-    // Set this.state.cards equal to the new cards array
-    // this.setState({clickedCards: clickedCards})
-    //   this.setState({ cards: cards});
-    //   this.setState({clickedCards: [...this.state.clickedCards, id]})
-    //   this.setState({highScore: this.state.highScore + 1})
-    // }
+  };
+
+  gameRestart = () => {
+    this.setState({ clickedCards: [], currentScore: 0, gameRunning: true });
   };
 
   checkHighScore = () => {
@@ -71,17 +57,12 @@ class App extends Component {
     console.log(this.state.clickedCards);
     console.log(this.state.highScore);
     return (
-      //   <>
-      //   <img
-      //     src={`${iconPath}coda.jpeg`}
-      //     alt="more"
-      // />
-
       <div>
-        <ScoreBoard highScore={this.state.highScore} currentScore={this.state.currentScore} />
+        <ScoreBoard
+          highScore={this.state.highScore}
+          currentScore={this.state.currentScore}
+        />
         <Wrapper>
-          <Title>Zeppelin Clicky Game</Title>
-          
           {this.state.gameRunning ? (
             this.state.cards.map(card => (
               <PlayingCard
@@ -95,7 +76,10 @@ class App extends Component {
               />
             ))
           ) : (
-            <h1>Game Over</h1>
+            <GameOver
+              currentScore={this.state.currentScore}
+              gameRestart={this.gameRestart}
+            />
           )}
         </Wrapper>
       </div>
