@@ -53,9 +53,7 @@ class App extends Component {
 
   // Map over this.state.cards and render a cardCard component for each card object
   render() {
-    console.log(this.state.cards);
-    console.log(this.state.clickedCards);
-    console.log(this.state.highScore);
+  
     return (
       <div>
         <ScoreBoard
